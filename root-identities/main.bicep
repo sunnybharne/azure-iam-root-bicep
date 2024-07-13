@@ -2,14 +2,14 @@ targetScope = 'subscription'
 
 param identityResourceGroupName string
 
-//param managementGroupIdentityName string
+param managementGroupIdentityName string
 
 param location string
 
 param tags object
 
 //resourceGroup
-module rootIdentities '../modules/resourceGroup.bicep' = {
+module identitiesResourceGroup '../modules/resourceGroup.bicep' = {
   name: identityResourceGroupName
   scope: subscription()
   params: {
@@ -19,12 +19,12 @@ module rootIdentities '../modules/resourceGroup.bicep' = {
   }
 }
 
-//module managementGroupIdentity '../modules/managedIdentity.bicep' = {
-//  name: managementGroupIdentityName
-//  scope: resourceGroup()
-//  params: {
-//    managedIdnetityName: managementGroupIdentityName
-//    location: location
-//    tags: tags
-//  }
-//}
+module managementGroupIdentity '../modules/managedIdentity.bicep' = {
+  name: managementGroupIdentityName
+  scope: resourceGroup(identityResourceGroupName)
+  params: {
+    managedIdnetityName: managementGroupIdentityName
+    location: location
+    tags: tags
+  }
+}

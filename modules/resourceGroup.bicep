@@ -9,8 +9,11 @@ param resourceGroupLocation string
 @description('Tags for the resource group')
 param tags object
 
-resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource Rg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
   tags: tags
 }
+
+output name string = Rg.name
+output id string = Rg.id
