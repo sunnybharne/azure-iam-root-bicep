@@ -11,7 +11,7 @@ pool:
 parameters:
   - name: serviceConnectionName
     type: string
-    default: 'id-root-sc-prod-01'
+    default: 'id-root'
 
 variables:
   - name: location
