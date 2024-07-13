@@ -27,4 +27,7 @@ module managementGroupIdentity '../modules/managedIdentity.bicep' = {
     location: location
     tags: tags
   }
+  dependsOn: [
+    identitiesResourceGroup
+  ]
 }
