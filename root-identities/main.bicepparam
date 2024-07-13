@@ -1,10 +1,10 @@
 using './main.bicep'
 
-param managementGroupIdentityName = 'mg-sc-prod-01'
+param managementGroupIdentityName = 'id-mg-sc-prod-01'
 
 param location = 'swedencentral'
 
-param identityResourceGroupName = 'rg-mg-sc-prod-01'
+param identityResourceGroupName = 'rg-identities-sc-prod-01'
 
 param tags = {
   environment: 'production'
