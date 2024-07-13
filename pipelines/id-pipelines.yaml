@@ -22,8 +22,7 @@ variables:
 stages:
 - stage: 
   jobs:
-  - job: deploy_root_identities
-    displayName: 'Deploy Root Identities'
+  - job: 'deploy root identities'
     steps:
       - script: echo $(location)
       - task: AzureCLI@2
