@@ -17,7 +17,7 @@ variables:
   - name: location
     value: 'swedencentral'
   - name: parameterFile
-    value: 'root_identities/main.bicepparam'
+    value: 's/root-identities/main.bicepparam'
 
 stages:
 - stage: 
@@ -36,5 +36,5 @@ stages:
           inlineScript: |
             az --version
             pwd
-            az deployment sub create --location ${{ variables.parameterFile }} --parameters ${{ variables.parameterFile }}
+            az deployment sub create --location ${{ variables.location}} --parameters ${{ variables.parameterFile }}
           powerShellErrorActionPreference: 'stop' # | 'continue' | 'silentlyContinue'
