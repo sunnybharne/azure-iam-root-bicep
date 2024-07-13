@@ -23,7 +23,7 @@ resource managedIdnetity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-
 
 resource sub 'Microsoft.Subscription/aliases@2021-10-01' existing = {
   scope: tenant()
-  name: subscriptionId
+  name: 'tenent-root'
 }
 
 
