@@ -20,9 +20,9 @@ variables:
     value: 'root-identities/main.bicepparam'
 
 stages:
-- stage: id-deploy-stage
+- stage: id_deploy_stage
   jobs:
-  - job: id-deploy-job
+  - job: id_deploy_job
     steps:
       - task: AzureCLI@2
         inputs:
