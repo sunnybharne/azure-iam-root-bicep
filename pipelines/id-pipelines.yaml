@@ -1,0 +1,36 @@
+name: id-pipelines
+
+trigger:
+  branches:
+    include:
+    - main
+
+pool:
+  name: selfhosted
+
+parameters:
+  - name: serviceConnectionName
+    type: string
+    default: id-root
+
+variables:
+  - location: 'swedencentral'
+  - parameterFile: 'root-identities/main.bicepparam'
+
+stages:
+- stage: id-deploy-stage
+  jobs:
+  - job: id-deploy-job
+    steps:
+    - task: AzureCLI@2
+      inputs:
+      azureSubscription: serviceConnectionName
+      scriptType: ps
+      scriptLocation: 'inlineScript' #| 'scriptPath'
+        # scriptPath: 
+      #arguments: 
+      inlineScript: |
+        az deployment tenant create \
+              --location ${{ parameters.location }} \
+              --parameters @${{ variables.parameterFile }}
+      powerShellErrorActionPreference: 'stop' # | 'continue' | 'silentlyContinue'
