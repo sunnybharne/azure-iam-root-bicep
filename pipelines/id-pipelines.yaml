@@ -34,5 +34,7 @@ stages:
           # scriptPath: 
           #arguments: 
           inlineScript: |
+            az --version
+            pwd
             az deployment sub create --location ${{ variables.parameterFile }} --parameters ${{ variables.parameterFile }}
           powerShellErrorActionPreference: 'stop' # | 'continue' | 'silentlyContinue'
