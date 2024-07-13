@@ -26,6 +26,7 @@ resource sub 'Microsoft.Subscription/aliases@2021-10-01' existing = {
   name: subscriptionId
 }
 
+
 resource RoleDefinitionId 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
   scope: subscription()
   name: roleId
@@ -41,3 +42,4 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   }
 }
 
+output subscriptionIdentity string = sub.properties.subscriptionId
