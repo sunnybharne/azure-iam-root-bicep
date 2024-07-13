@@ -1,6 +1,6 @@
 using './main.bicep'
 
-//param managementGroupIdentityName = 'id-ManagementGroup-sc-prod-01'
+param managementGroupIdentityName = 'mg-sc-prod-01'
 
 param location = 'swedencentral'
 
