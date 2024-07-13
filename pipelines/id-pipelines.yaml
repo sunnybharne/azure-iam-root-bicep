@@ -17,7 +17,7 @@ variables:
   - name: location
     value: 'swedencentral'
   - name: parameterFile
-    value: '/root-identities/main.bicepparam'
+    value: './root-identities/main.bicepparam'
 
 stages:
 - stage: 
