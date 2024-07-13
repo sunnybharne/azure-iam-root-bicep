@@ -1,3 +1,5 @@
+targetScope = 'subscription'
+
 param identityResourceGroupName string
 
 //param managementGroupIdentityName string
