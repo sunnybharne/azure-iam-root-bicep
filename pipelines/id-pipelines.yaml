@@ -34,5 +34,5 @@ stages:
           # scriptPath: 
           #arguments: 
           inlineScript: |
-            az deployment tenant create --location ${{ variables.parameterFile }} --parameters ${{ variables.parameterFile }}
+            az deployment sub create --location ${{ variables.parameterFile }} --parameters ${{ variables.parameterFile }}
           powerShellErrorActionPreference: 'stop' # | 'continue' | 'silentlyContinue'
