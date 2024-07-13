@@ -26,13 +26,13 @@ stages:
     steps:
       - task: AzureCLI@2
         inputs:
-        azureSubscription: serviceConnectionName
-        scriptType: ps
-        scriptLocation: 'inlineScript' #| 'scriptPath'
-          # scriptPath: 
-        #arguments: 
-        inlineScript: |
-          az deployment tenant create \
-                --location @${{ variables.parameterFile }} \
-                --parameters @${{ variables.parameterFile }}
-        powerShellErrorActionPreference: 'stop' # | 'continue' | 'silentlyContinue'
+          azureSubscription: serviceConnectionName
+          scriptType: ps
+          scriptLocation: 'inlineScript' #| 'scriptPath'
+            # scriptPath: 
+          #arguments: 
+          inlineScript: |
+            az deployment tenant create \
+                  --location @${{ variables.parameterFile }} \
+                  --parameters @${{ variables.parameterFile }}
+          powerShellErrorActionPreference: 'stop' # | 'continue' | 'silentlyContinue'
