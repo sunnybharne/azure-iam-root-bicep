@@ -28,7 +28,7 @@ stages:
       - task: AzureCLI@2
         inputs:
           azureSubscription: ${{ parameters.serviceConnectionName }}
-          scriptType: ps
+          scriptType: bash
           scriptLocation: 'inlineScript' #| 'scriptPath'
           # scriptPath: 
           #arguments: 
