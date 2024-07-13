@@ -8,10 +8,6 @@ param location string
 
 param tags object
 
-param tenent_root_subscriptionId string
-
-param mg_contributor_roleId string
-
 //resourceGroup
 module identitiesResourceGroup '../modules/resourceGroup.bicep' = {
   name: identityResourceGroupName
@@ -23,12 +19,10 @@ module identitiesResourceGroup '../modules/resourceGroup.bicep' = {
   }
 }
 
-module managementGroupIdentity '../modules/create-managedIdentity.bicep' = {
+module managementGroupIdentity '../modules/managedIdentity.bicep' = {
   name: managementGroupIdentityName
   scope: resourceGroup(identityResourceGroupName)
   params: {
-    subscriptionId: tenent_root_subscriptionId
-    roleId: mg_contributor_roleId
     managedIdnetityName: managementGroupIdentityName
     location: location
     tags: tags
